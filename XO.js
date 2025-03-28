@@ -71,10 +71,8 @@ function turnIndicator() {
       turnScreen.textContent = "Player 2's turn";
     }
   } else if (checkWinner(character, "Player 1")) {
-    turnScreen.textContent = `Player 1 won with ${character}`;
     turnScreen.classList.add("win");
   } else if (checkWinner(character2, "Player 2")) {
-    turnScreen.textContent = `Player 2 won with ${character2}`;
     turnScreen.classList.add("win");
   }
 }
@@ -251,5 +249,5 @@ resetBtn.addEventListener("click", function () {
   resetGame();
 });
 
-// update the ui
 // expand the grid to a 4 by 4 grid
+//fix the minimax algorithm implementation 
