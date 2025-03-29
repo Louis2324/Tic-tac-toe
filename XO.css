@@ -70,7 +70,7 @@ header button {
 
 header button:hover {
   transform: scale(1.01);
-  box-shadow: 3px 3px 2px var(--light);
+  border: 3px solid var(--light);
 }
 
 header button i {
@@ -486,8 +486,7 @@ body.light .cells {
 body.light #game-mode label,
 body.light #game-info summary,
 body.light #game-info label,
-body.light #game-info details
-{
+body.light #game-info details {
   color: black;
 }
 
