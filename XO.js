@@ -187,3 +187,20 @@ const resetBtn = document.getElementById("resetBtn");
 resetBtn.addEventListener("click", function () {
   resetGame();
 });
+
+const toggle = document.getElementById("toggleMode");
+const body = document.body;
+const icon = document.querySelector("header button i");
+
+toggle.addEventListener("click", () => {
+  if (!body.classList.contains("light")) {
+    body.classList.add("light");
+    icon.classList.remove("bx-sun");
+    icon.classList.add("bxs-moon");
+    console.log(icon.classList);
+  } else if (body.classList.contains("light")) {
+    body.classList.remove("light");
+    icon.classList.remove("bxs-moon");
+    icon.classList.add("bx-sun");
+  }
+});

@@ -4,11 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="XO.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>XOXO</title>
   </head>
   <body>
     <header>
       <h1>Tic-Tac-Toe</h1>
+      <button id="toggleMode">
+        <i id="icon" class="bx bx-sun" style="color: #ffffff"></i>
+      </button>
     </header>
 
     <section id="game-mode">
@@ -53,7 +60,6 @@
         <div id="turn-screen">
           <p id="turn-indicator"></p>
         </div>
-        
       </div>
       <section id="game-area">
         <div class="cells"><button class="cellBtns" id="1"></button></div>

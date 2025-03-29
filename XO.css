@@ -31,6 +31,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 80px;
+  transition: all 1s ease-in-out;
 }
 
 header {
@@ -50,6 +51,31 @@ header h1 {
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
+}
+
+header button {
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+header button:hover {
+  transform: scale(1.01);
+  box-shadow: 3px 3px 2px var(--light);
+}
+
+header button i {
+  font-size: 24px;
+  color: #0a1120;
 }
 
 .hidden {
@@ -420,4 +446,75 @@ header h1 {
   #ai-box {
     padding: 0.8rem 1.5rem;
   }
+}
+
+body.light {
+  --primary: #4a6bff;
+  --primary-hover: #3a5bef;
+  --accent-win: #00c896;
+  --accent-draw: #ff6b6b;
+  --accent-secondary: #ffb74d;
+  --dark-blue: #f8fafc;
+  --darker-blue: #f1f5f9;
+  --light: #0f172a;
+  --glass: rgba(0, 0, 0, 0.05);
+  --glass-dark: rgba(241, 245, 249, 0.7);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --dark-text: #0f172a;
+  --light-bg: #ffffff;
+}
+
+body.light {
+  background: linear-gradient(135deg, var(--darker-blue), var(--light-bg));
+  color: black;
+}
+
+body.light header {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(74, 107, 255, 0.1);
+}
+
+body.light #game-mode,
+body.light #game-info,
+body.light #game-area,
+body.light .cells {
+  background: var(--dark-blue);
+  border-color: rgba(74, 107, 255, 0.1);
+  color: black;
+}
+
+body.light #game-mode label,
+body.light #game-info summary,
+body.light #game-info label,
+body.light #game-info details
+{
+  color: black;
+}
+
+body.light #game-mode label:hover,
+body.light #game-info summary:hover {
+  color: black;
+  background: rgba(74, 107, 255, 0.05);
+}
+
+body.light .cells:hover {
+  background: rgba(74, 107, 255, 0.05);
+}
+
+body.light #turn-screen,
+body.light #ai-box {
+  background: var(--glass-dark);
+  border-color: rgba(74, 107, 255, 0.1);
+}
+
+body.light #game-info input {
+  background: rgba(241, 245, 249, 0.7);
+}
+
+body.light header button {
+  background-color: var(--primary);
+}
+
+body.light header button i {
+  color: white;
 }
