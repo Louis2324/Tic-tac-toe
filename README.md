@@ -1,1 +1,3 @@
-Come test out your tic-tac-toe skills with this beauty of a game 
+The game is simple get your selected character to span 3 cells 
+The overall project was to practice theme toggling and ui animations for gamefied environments
+
