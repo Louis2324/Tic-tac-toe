@@ -4,8 +4,6 @@ const startBtn = document.getElementById("startBtn");
 const main = document.querySelector("main");
 const gameInfo = document.getElementById("game-info");
 const gooBtn = document.querySelector("#game-mode button");
-const aiBox = document.getElementById("ai-box");
-
 turnScreen.textContent = "Player 1's turn";
 
 let round = 0;
@@ -77,54 +75,7 @@ function turnIndicator() {
   }
 }
 
-function minimax(board, depth, isMaximizing) {
-  const scores = {
-    X: -10,
-    O: 10,
-    tie: 0,
-  };
-
-  if (checkWinner("O", "AI")) {
-    return scores["O"] - depth;
-  }
-  if (checkWinner("X", "Player 1")) {
-    return scores["X"] + depth;
-  }
-  if (board.every((cell) => cell !== "")) {
-    return scores["tie"];
-  }
-
-  let bestScore = isMaximizing ? -Infinity : Infinity;
-  let bestMove = null;
-
-  for (let i = 0; i < board.length; i++) {
-    if (board[i] === "") {
-      board[i] = isMaximizing ? "O" : "X";
-      let score = minimax(board, depth + 1, !isMaximizing);
-      board[i] = "";
-
-      if (isMaximizing) {
-        if (score > bestScore) {
-          bestScore = score;
-          bestMove = i;
-        }
-      } else {
-        if (score < bestScore) {
-          bestScore = score;
-          bestMove = i;
-        }
-      }
-    }
-  }
-
-  if (depth === 0) {
-    return bestMove;
-  }
-  return bestScore;
-}
-
 function randomChoice() {
-  aiBox.classList.remove("hidden");
   const buttons2 = [...buttons];
   const emptyBtns = buttons2.filter((button) => button.textContent === "");
   if (emptyBtns.length === 0) return;
@@ -141,9 +92,6 @@ function randomChoice() {
   ) {
     handleDraw();
   }
-  setTimeout(() => {
-    aiBox.classList.add("hidden");
-  }, 1000);
 }
 
 function handleDraw() {
@@ -191,17 +139,8 @@ buttons.forEach((button) => {
 
       if (!withPerson && !checkWinner(character, "Player 1")) {
         setTimeout(() => {
-          const bestMove = minimax(
-            [...buttons].map((button) => button.textContent),
-            0,
-            true
-          );
-          buttons[bestMove].textContent = character2;
-          buttons[bestMove].disabled = true;
-          checkWinner(character2, "AI");
-          round += 1;
-          turnIndicator();
-        }, 500);
+          randomChoice();
+        }, 1200);
       }
     } else if (withPerson) {
       button.textContent = character2;
@@ -248,6 +187,3 @@ const resetBtn = document.getElementById("resetBtn");
 resetBtn.addEventListener("click", function () {
   resetGame();
 });
-
-// expand the grid to a 4 by 4 grid
-//fix the minimax algorithm implementation 
